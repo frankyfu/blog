@@ -1,6 +1,7 @@
 # blog
 
-> y
+> franky's blog
+
 
 ## Build Setup
 
