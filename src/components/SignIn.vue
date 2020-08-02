@@ -2,12 +2,10 @@
   <div class="hello">
     <h1>Welcome to Franky's blog</h1>
       <div id="content">
-        <h2 id="acount">Acount:<input v-model="user.acount"  type="text"  ></h2>
-        <h2>Password:<input v-model="user.password"  type = "password" ></h2>
+        <h2 id="acount">Acount:<input v-model="acount"  type="text" value=""  ></h2>
+        <h2>Password:<input v-model="password"  type = "password" ></h2>
       </div>
-      <a v-on:click="SignIn" href="#" >Sign in</a>
-      <h1>{{acount}}
-      {{password}}</h1>
+      <a v-on:click="SignIn" href="" >Sign in</a>
   </div>
 </template>
 
@@ -16,20 +14,17 @@ export default {
   name: 'SignIn',
   data () {
     return {
-      user: {
-        password: '',
-        acount: ''
-      }
+      password: '',
+      acount: ''
     }
   },
-  methods:{
-    SignIn:function(){
-      
-      this.$http.post("",{
-        acount:this.user.acount,
-        password:this.user.password
-      }).then(function(data){
-        console.log(data)
+  methods: {
+    SignIn: function () {
+      this.$http.post('http://localhost:3000/SignIn', {
+        acount: this.acount,
+        password: this.password
+      }).then(function (data) {
+        alert(data)
       })
     }
   }
